@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f0e8">
+  <meta name="description" content="Um guia interativo para instalar o OpenCode e criar seu primeiro agente de IA.">
+  <title>Kit de agentes — laboratório guiado</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="wordmark" href="#inicio" aria-label="Kit de agentes, início"><span class="wordmark-icon" aria-hidden="true">✳</span><span>OFICINA <b>DE AGENTES</b></span></a>
+      <div class="topbar-note"><span class="live-dot"></span> GUIA DE AULA <span class="topbar-divider">/</span> OPENCODE</div>
+      <button class="reset-button" id="reset-progress" type="button" title="Apagar o progresso salvo">Recomeçar <span aria-hidden="true">↺</span></button>
+    </header>
+    <main id="inicio">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span>LABORATÓRIO 01</span><span class="eyebrow-line"></span><span>DO ZERO AO SEU AGENTE</span></p>
+          <h1 id="hero-title">Uma ideia.<br><em>Um agente.</em><br>Seu jeito de criar.</h1>
+          <p class="hero-intro">Prepare o OpenCode, conheça os arquivos do kit e monte um especialista que entende as regras do seu projeto.</p>
+          <button class="start-button" id="start-button" type="button">Começar a oficina <span aria-hidden="true">↘</span></button>
+        </div>
+        <div class="hero-art" aria-label="Ilustração abstrata de um agente em construção" role="img"><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-sun">✳</div><div class="art-card card-top"><span>IDENTIDADE</span><b>agent_java</b></div><div class="art-card card-bottom"><span>MODELO</span><b>GPT-6 Luna</b></div><div class="art-stamp">FEITO<br>POR VOCÊ</div><div class="art-caption">ESPECIALISTA<br>EM CONSTRUÇÃO <span>↗</span></div></div>
+        <div class="hero-foot"><span>7 ETAPAS</span><span>SEM PRESSA, NO SEU RITMO</span><span class="hero-foot-mark">↘</span></div>
+      </section>
+      <section class="workspace" id="oficina" aria-label="Etapas da oficina">
+        <aside class="journey" aria-label="Navegação das etapas">
+          <div class="journey-heading"><span>SUA JORNADA</span><span id="progress-label">0 / 7</span></div><div class="progress-track" role="progressbar" aria-label="Etapas concluídas" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0"><span id="progress-bar"></span></div>
+          <nav class="step-nav" id="step-nav">
+            <button class="step-link is-active" data-step="0" type="button"><span class="step-index">01</span><span class="step-name">Antes de começar</span><span class="step-check">✓</span></button>
+            <button class="step-link" data-step="1" type="button"><span class="step-index">02</span><span class="step-name">Instalar o OpenCode</span><span class="step-check">✓</span></button>
+            <button class="step-link" data-step="2" type="button"><span class="step-index">03</span><span class="step-name">Conhecer o kit</span><span class="step-check">✓</span></button>
+            <button class="step-link" data-step="3" type="button"><span class="step-index">04</span><span class="step-name">Adicionar o plugin</span><span class="step-check">✓</span></button>
+            <button class="step-link" data-step="4" type="button"><span class="step-index">05</span><span class="step-name">Conectar à OpenAI</span><span class="step-check">✓</span></button>
+            <button class="step-link" data-step="5" type="button"><span class="step-index">06</span><span class="step-name">Abrir e testar</span><span class="step-check">✓</span></button>
+            <button class="step-link" data-step="6" type="button"><span class="step-index">07</span><span class="step-name">Criar seu agente</span><span class="step-check">✓</span></button>
+          </nav>
+          <div class="journey-tip"><span class="tip-icon">✦</span><p>Seu progresso fica salvo <strong>neste navegador.</strong></p></div>
+        </aside>
+        <div class="lesson-area">
+          <div class="lesson-topline"><span id="lesson-kicker">PREPARAÇÃO</span><span id="lesson-time">02 MIN</span></div>
+          <article class="lesson-panel is-visible" data-panel="0">
+            <div class="lesson-heading"><span class="lesson-number">01</span><div><p class="eyebrow-small">PRIMEIRO, O TERRENO</p><h2>Antes de começar</h2></div></div>
+            <p class="lesson-lead">Vamos conferir o que o grupo precisa para trabalhar sem tropeços.</p>
+            <div class="checklist" data-checklist="0">
+              <label class="check-row"><input type="checkbox" data-check="node"><span class="fake-check"></span><span><b>Node.js 18 ou mais novo</b><small>Confira no terminal. Se não tiver, baixe em <a href="https://nodejs.org" target="_blank" rel="noreferrer">nodejs.org</a>.</small></span></label>
+              <label class="check-row"><input type="checkbox" data-check="key"><span class="fake-check"></span><span><b>Chave de API do grupo</b><small>Peça ao professor. Não compartilhe com outros grupos.</small></span></label>
+            </div>
+            <div class="optional-prerequisite"><span>+</span><p><b>Só para rodar o back-end:</b> Java 17+ e Maven. Não são necessários para acompanhar este guia.</p></div>
+            <div class="terminal-card"><div class="terminal-label"><span class="terminal-lights"><i></i><i></i><i></i></span> VERIFICAR O NODE</div><div class="command-line"><code>node -v</code><button class="copy-button" data-copy="node -v" type="button"><span>Copiar</span><b>⧉</b></button></div><p>O resultado deve mostrar a versão instalada. Node 18 ou superior? Pode seguir.</p></div>
+            <div class="note-card"><span class="note-symbol">!</span><p><b>Uma regra para a chave:</b> ela é do grupo. Nunca cole em arquivos públicos, conversas ou no GitHub.</p></div>
+          </article>
+          <article class="lesson-panel" data-panel="1" hidden>
+            <div class="lesson-heading"><span class="lesson-number">02</span><div><p class="eyebrow-small">FERRAMENTA DE TRABALHO</p><h2>Instalar o OpenCode</h2></div></div>
+            <p class="lesson-lead">Escolha <strong>uma</strong> das opções para instalar. A primeira funciona em qualquer sistema com Node.</p>
+            <div class="option-card"><div class="option-heading"><span class="option-number">A</span><div><b>Com npm</b><small>Qualquer sistema com Node.js</small></div><span class="recommended">RECOMENDADO</span></div><div class="command-line"><code>npm install -g opencode-ai</code><button class="copy-button" data-copy="npm install -g opencode-ai" type="button"><span>Copiar</span><b>⧉</b></button></div></div>
+            <div class="option-card"><div class="option-heading"><span class="option-number">B</span><div><b>Script oficial</b><small>macOS ou Linux</small></div></div><div class="command-line"><code>curl -fsSL https://opencode.ai/install | bash</code><button class="copy-button" data-copy="curl -fsSL https://opencode.ai/install | bash" type="button"><span>Copiar</span><b>⧉</b></button></div></div>
+            <div class="terminal-card"><div class="terminal-label"><span class="terminal-lights"><i></i><i></i><i></i></span> CONFERIR INSTALAÇÃO</div><div class="command-line"><code>opencode --version</code><button class="copy-button" data-copy="opencode --version" type="button"><span>Copiar</span><b>⧉</b></button></div><p>Se aparecer “command not found”, feche e abra o terminal. Se continuar, reinstale.</p></div>
+            <div class="checklist" data-checklist="1"><label class="check-row"><input type="checkbox" data-check="installed"><span class="fake-check"></span><span><b>OpenCode instalado e versão conferida</b><small>Marque quando o comando mostrar uma versão.</small></span></label></div>
+          </article>
+          <article class="lesson-panel" data-panel="2" hidden>
+            <div class="lesson-heading"><span class="lesson-number">03</span><div><p class="eyebrow-small">ARRUMAR A BANCADA</p><h2>Conhecer o kit</h2></div></div>
+            <p class="lesson-lead">Copie estes itens para a <strong>raiz do projeto do grupo</strong>. Aqui, cada arquivo tem um papel.</p>
+            <div class="file-map" aria-label="Arquivos e pastas do kit">
+              <div class="file-row"><span class="file-icon">◇</span><code>opencode.json</code><span>Fixa o modelo Luna e registra <code>agent_front</code>.</span></div>
+              <div class="file-row"><span class="file-icon">◇</span><code>.opencode/oh-my-opencode-slim.json</code><span>Configura subagentes da biblioteca para usar Luna.</span></div>
+              <div class="file-row"><span class="file-icon">▤</span><code>agentes/</code><span>Guarda os arquivos de texto dos seus agentes.</span></div>
+              <div class="file-row"><span class="file-icon">◇</span><code>.gitignore</code><span>Junte as regras do kit às que já existem.</span></div>
+              <div class="file-row"><span class="file-icon">◇</span><code>.env.example</code><span>Exemplo da variável da chave; nunca envie o .env.</span></div>
+            </div>
+            <div class="model-callout"><span class="model-star">✳</span><div><small>MODELO DEFINIDO PELO KIT</small><b>GPT-6 Luna</b><code>openai/gpt-6-luna</code></div><p>O modelo já está definido nos arquivos de configuração. Mantenha essa configuração.</p></div>
+            <div class="insight-card"><span>↳</span><p><strong>Um agente já vem no kit:</strong> <code>agent_front</code> ajuda com HTML, CSS e JavaScript puro. Suas regras dizem onde trabalhar no front-end e deixam claro que não deve alterar arquivos Java nem o <code>pom.xml</code>.</p></div>
+            <div class="note-card"><span class="note-symbol">i</span><p>Ao copiar o <code>.gitignore</code>, combine seu conteúdo com o arquivo que já existe — não apague regras do projeto.</p></div>
+            <div class="checklist" data-checklist="2"><label class="check-row"><input type="checkbox" data-check="copied"><span class="fake-check"></span><span><b>Arquivos do kit copiados para a raiz</b><small>Confira os nomes e pastas antes de continuar.</small></span></label></div>
+          </article>
+          <article class="lesson-panel" data-panel="3" hidden>
+            <div class="lesson-heading"><span class="lesson-number">04</span><div><p class="eyebrow-small">UM PLUGIN, UM COMANDO</p><h2>Adicionar a biblioteca</h2></div></div>
+            <p class="lesson-lead">No terminal, entre na pasta do projeto do grupo e rode o instalador.</p>
+            <div class="terminal-card terminal-large"><div class="terminal-label"><span class="terminal-lights"><i></i><i></i><i></i></span> NO PROJETO DO GRUPO</div><div class="command-line"><code>npx oh-my-opencode-slim@latest install</code><button class="copy-button" data-copy="npx oh-my-opencode-slim@latest install" type="button"><span>Copiar</span><b>⧉</b></button></div><p>Se o instalador perguntar sobre provedores, escolha <strong>OpenAI</strong>.</p></div>
+            <div class="insight-card"><span>↳</span><p>As demais escolhas do instalador não definem o modelo final: o arquivo <code>.opencode/oh-my-opencode-slim.json</code> do projeto tem prioridade e mantém os subagentes no Luna.</p></div>
+            <div class="checklist" data-checklist="3"><label class="check-row"><input type="checkbox" data-check="plugin"><span class="fake-check"></span><span><b>Instalador do plugin concluído</b><small>Escolhi OpenAI quando perguntado sobre provedores.</small></span></label></div>
+          </article>
+          <article class="lesson-panel" data-panel="4" hidden>
+            <div class="lesson-heading"><span class="lesson-number">05</span><div><p class="eyebrow-small">ACESSO COM CUIDADO</p><h2>Conectar à OpenAI</h2></div></div>
+            <p class="lesson-lead">Autentique o OpenCode usando a chave de API entregue ao seu grupo.</p>
+            <div class="terminal-card terminal-large"><div class="terminal-label"><span class="terminal-lights"><i></i><i></i><i></i></span> AUTENTICAR</div><div class="command-line"><code>opencode auth login</code><button class="copy-button" data-copy="opencode auth login" type="button"><span>Copiar</span><b>⧉</b></button></div><p>Escolha <strong>OpenAI</strong> e cole a chave do grupo, que começa com <code>sk-</code>.</p></div>
+            <div class="security-card"><div class="security-mark">⌑</div><div><b>Chave secreta. Grupo protegido.</b><ul><li>Não passe a chave para outros grupos nem publique em chats.</li><li>O arquivo <code>.env</code> está no <code>.gitignore</code>; confira com <code>git status</code> antes de enviar arquivos.</li><li>A chave tem limite de gasto. Se acabar, avise o professor.</li></ul></div></div>
+            <div class="checklist" data-checklist="4"><label class="check-row"><input type="checkbox" data-check="auth"><span class="fake-check"></span><span><b>Login OpenAI realizado</b><small>Usei a chave do meu grupo sem compartilhá-la.</small></span></label></div>
+          </article>
+          <article class="lesson-panel" data-panel="5" hidden>
+            <div class="lesson-heading"><span class="lesson-number">06</span><div><p class="eyebrow-small">HORA DE TESTAR</p><h2>Abrir e testar</h2></div></div>
+            <p class="lesson-lead">Abra o OpenCode a partir da pasta do projeto. O kit configura o GPT-6 Luna como modelo.</p>
+            <div class="terminal-card terminal-large"><div class="terminal-label"><span class="terminal-lights"><i></i><i></i><i></i></span> ABRIR O OPENCODE</div><div class="command-line"><code>opencode</code><button class="copy-button" data-copy="opencode" type="button"><span>Copiar</span><b>⧉</b></button></div><p>No rodapé, confira se aparece <strong>GPT-6 Luna</strong>.</p></div>
+            <div class="test-prompt"><span class="prompt-tag">PRIMEIRA CONVERSA</span><p>analise a stack do projeto</p><button class="copy-button" data-copy="analise a stack do projeto" type="button"><span>Copiar pedido</span><b>⧉</b></button></div>
+            <div class="two-notes"><div class="mini-note"><b>Modelo diferente?</b><p>Digite <code>/models</code> e escolha <code>GPT-6 Luna</code>.</p></div><div class="mini-note"><b>Apareceu erro?</b><p>Se disser que não tem acesso ao modelo, avise o professor.</p></div></div>
+            <div class="checklist" data-checklist="5"><label class="check-row"><input type="checkbox" data-check="tested"><span class="fake-check"></span><span><b>Conferi o modelo e enviei o teste</b><small>O teste não apresentou erro de acesso ao modelo.</small></span></label></div>
+          </article>
+          <article class="lesson-panel" data-panel="6" hidden>
+            <div class="lesson-heading"><span class="lesson-number">07</span><div><p class="eyebrow-small">ESPECIALISTA COM REGRAS</p><h2>Criar seu agente</h2></div></div>
+            <p class="lesson-lead">Um agente é um arquivo <code>.md</code> de texto puro: nele você define quem ele é, o que faz e como deve trabalhar.</p>
+            <div class="build-steps"><div><span>01</span><p>Copie <code>agentes/_modelo_agente.md</code> para <code>agentes/agent_java.md</code>.</p></div><div><span>02</span><p>Preencha identidade, objetivo, regras e etapas de trabalho.</p></div><div><span>03</span><p>Registre o nome e o caminho do arquivo em <code>opencode.json</code>.</p></div><div><span>04</span><p>Reabra o OpenCode e chame <code>@agent_java</code> ou use <kbd>Tab</kbd>.</p></div></div>
+            <div class="example-heading"><div><p class="eyebrow-small">EXEMPLO · AGENTE JAVA</p><b>O arquivo descreve o comportamento</b></div><button class="copy-button copy-on-light" data-copy="Você é o agent_java, especialista em Java.&#10;&#10;## Objetivo&#10;Criar classes e regras de negócio em Java.&#10;&#10;## Regras&#10;- Use Java 17+.&#10;- Respeite a estrutura existente do projeto.&#10;- Não altere arquivos fora do escopo combinado.&#10;&#10;## Como trabalhar&#10;1. Explique o plano antes de codar.&#10;2. Faça uma mudança pequena por vez.&#10;3. Liste os arquivos alterados." type="button"><span>Copiar exemplo</span><b>⧉</b></button></div>
+            <div class="code-card"><span class="code-lang">agentes/agent_java.md</span><pre><code>Você é o agent_java, especialista em Java.
+
+## Objetivo
+Criar classes e regras de negócio em Java.
+
+## Regras
+- Use Java 17+.
+- Respeite a estrutura existente do projeto.
+- Não altere arquivos fora do escopo combinado.
+
+## Como trabalhar
+1. Explique o plano antes de codar.
+2. Faça uma mudança pequena por vez.
+3. Liste os arquivos alterados.</code></pre></div>
+            <div class="explain-grid"><div><span>IDENTIDADE</span><p>Quem é e em qual assunto ajuda.</p></div><div><span>LIMITES</span><p>Tecnologias, pastas e alterações permitidas.</p></div><div><span>PROCESSO</span><p>Como deve conduzir e encerrar o trabalho.</p></div></div>
+            <div class="example-heading json-heading"><div><p class="eyebrow-small">REGISTRAR NO OPENCODE.JSON</p><b>O cadastro conecta agente, modelo e arquivo</b></div><button class="copy-button copy-on-light" data-copy='"agent_java": {&#10;  "description": "Cria classes e regras de negócio em Java",&#10;  "mode": "all",&#10;  "model": "openai/gpt-6-luna",&#10;  "prompt": "{file:./agentes/agent_java.md}"&#10;}' type="button"><span>Copiar trecho</span><b>⧉</b></button></div>
+            <div class="code-card json-card"><span class="code-lang">DENTRO DE "agent"</span><pre><code>"agent_java": {
+  "description": "Cria classes e regras de negócio em Java",
+  "mode": "all",
+  "model": "openai/gpt-6-luna",
+  "prompt": "{file:./agentes/agent_java.md}"
+}</code></pre></div>
+            <div class="note-card"><span class="note-symbol">!</span><p>Se houver outro agente antes deste, separe os blocos com vírgula. Não deixe vírgula depois do último. Os arquivos de agente são texto puro, sem cabeçalho de metadados.</p></div>
+            <div class="checklist" data-checklist="6"><label class="check-row"><input type="checkbox" data-check="agent-file"><span class="fake-check"></span><span><b>Criei o arquivo do agente</b><small>Copiei o modelo e adaptei objetivo, regras e processo.</small></span></label><label class="check-row"><input type="checkbox" data-check="agent-config"><span class="fake-check"></span><span><b>Registrei e testei o agente</b><small>Reabri o OpenCode e usei @agent_java ou Tab.</small></span></label></div>
+            <div class="finish-card"><span>✳</span><div><b>Agora o especialista é seu.</b><p>Peça tarefas pequenas e específicas, continue a mesma conversa e diga quais pastas o agente pode ler. Evite mudar o <code>variant</code> para high, xhigh ou max sem falar com o professor.</p></div></div>
+          </article>
+          <div class="lesson-footer"><button class="previous-button" id="previous-button" type="button" disabled><span aria-hidden="true">←</span> Anterior</button><span class="save-status" id="save-status" aria-live="polite">PROGRESSO SALVO AUTOMATICAMENTE</span><button class="next-button" id="next-button" type="button">Próxima etapa <span aria-hidden="true">→</span></button></div>
+        </div>
+      </section>
+      <footer class="page-footer"><a class="wordmark footer-mark" href="#inicio"><span class="wordmark-icon" aria-hidden="true">✳</span><span>OFICINA <b>DE AGENTES</b></span></a><p>Feito para aprender fazendo. <span>↗</span></p><span class="footer-version">KIT DE AULA · GPT-6 LUNA</span></footer>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite">Copiado para a área de transferência</div>
+  </div>
+</body>
+</html>
